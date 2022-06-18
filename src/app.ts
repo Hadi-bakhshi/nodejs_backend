@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import router from "./routes/user";
+import postRouter from "./routes/posts";
 dotenv.config();
 
 const app = express();
@@ -11,10 +12,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use("/api/user", router);
+app.use('/api/posts', postRouter)
 
-app.get("/api/current/user", (req: Request, res: Response) => {
-  res.send("Hi Reza");
-});
+// app.get("/api/current/user", (req: Request, res: Response) => {
+//   res.send("Hi Reza");
+// });
 
 
 app.listen(port, () => {
