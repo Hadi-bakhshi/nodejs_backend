@@ -42,18 +42,18 @@ const utils_1 = require("../utils/utils");
 const validation_1 = require("../validation/validation");
 const bcryptjs_1 = __importDefault(require("bcryptjs"));
 const router = express_1.default.Router();
-router.post("/login", (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post('/login', (0, express_async_handler_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { error } = (0, validation_1.loginValidation)(req.body);
     if (error)
-        return res.status(400).json({ message: "اوضاع خیته" });
+        return res.status(400).json({ message: 'اوضاع خیته' });
     const reqUser = req.body.username;
-    const user = data.users.find(u => u.username === reqUser);
+    const user = data.users.find((u) => u.username === reqUser);
     console.log(user);
     if (!user)
-        return res.status(400).json({ message: "کاربر مورد نظر وجود ندارد" });
+        return res.status(400).json({ message: 'کاربر مورد نظر وجود ندارد' });
     const validPass = yield bcryptjs_1.default.compare(req.body.password, user.password);
     if (!validPass)
-        return res.status(400).json({ message: "رمز عبور نادرست می باشد" });
+        return res.status(400).json({ message: 'رمز عبور نادرست می باشد' });
     res.send({
         id: user.id,
         name: user.name,
@@ -61,7 +61,7 @@ router.post("/login", (0, express_async_handler_1.default)((req, res) => __await
         role: user.role,
         roleId: user.roleId,
         token: (0, utils_1.generateToken)(user),
-        status: "عملیات با موفقیت انجام شد"
+        status: 'عملیات با موفقیت انجام شد',
     });
 })));
 exports.default = router;
