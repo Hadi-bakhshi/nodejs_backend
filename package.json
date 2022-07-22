@@ -4,7 +4,8 @@
   "description": "",
   "main": "dist/app.js",
   "scripts": {
-    "start": "tsc && node dist/app.js",
+    "dev": "nodemon server.ts",
+    "start": "tsc && ts-node dist/app.js",
     "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +26,7 @@
     "typescript": "^4.7.3"
   },
   "dependencies": {
+    "@prisma/client": "^4.0.0",
     "@types/mssql": "^8.0.2",
     "axios": "^0.27.2",
     "bcryptjs": "^2.4.3",
@@ -36,9 +38,11 @@
     "dotenv": "^16.0.1",
     "express": "^4.18.1",
     "express-async-handler": "^1.2.0",
+    "express-validator": "^6.14.2",
     "joi": "^17.6.0",
     "jsonwebtoken": "^8.5.1",
     "mssql": "^8.1.2",
+    "prisma": "^4.0.0",
     "ts-node": "^10.8.1",
     "tsconfig-paths": "^4.0.0",
     "uuid": "^8.3.2"

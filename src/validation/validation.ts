@@ -7,4 +7,3 @@ export const loginValidation = (data: any) => {
     });
     return schema.validate(data);
   };
-  
