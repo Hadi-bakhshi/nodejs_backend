@@ -21,7 +21,7 @@ app.post('/myuserishere', async (req, res) => {
   const user = await prisma.$queryRaw`INSERT INTO [dbo].[Spy]
   ([Name])
 VALUES
-  (N'هادی')`;
+  (N'${req.body.fullName}')`;
   console.log(user);
 });
 
