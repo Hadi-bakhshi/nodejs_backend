@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import router from './src/routes/user';
+import router from './routes/user';
 // import getSUsr from './routes/posts';
 import { PrismaClient } from '@prisma/client';
 // const sql = require('mssql');
@@ -17,24 +17,12 @@ app.use(cors());
 
 app.use('/api/user', router);
 
-app.get('/myuserishere', (req, res) => {
-  async function main() {
-    // await prisma.user.create({
-    //   data: {
-    //     name: 'هادی بخشی',
-    //     username: 'hadi',
-    //     password: '1234',
-    //     role: 'admin',
-    //     roleId: 1,
-    //   },
-    // });
-
-    const allUsers = await prisma.user.findMany();
-    console.log(allUsers);
-    console.dir(allUsers, { depth: null });
-    res.json(allUsers);
-  }
-  main();
+app.post('/myuserishere', async (req, res) => {
+  const user = await prisma.$queryRaw`INSERT INTO [dbo].[Spy]
+  ([Name])
+VALUES
+  (N'هادی')`;
+  console.log(user);
 });
 
 app.listen(port, () => {

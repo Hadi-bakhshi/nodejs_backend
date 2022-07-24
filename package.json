@@ -2,10 +2,10 @@
   "name": "backend-test",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/app.js",
+  "main": "dist/server.js",
   "scripts": {
     "dev": "nodemon server.ts",
-    "start": "tsc && ts-node dist/app.js",
+    "start": "tsc && ts-node dist/server.js",
     "lint": "eslint . --ext .ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
