@@ -25,6 +25,13 @@ VALUES
   console.log(user);
 });
 
+app.get('/test', async (req, res) => {
+  console.log('this is test');
+  res.json({
+    name: 'reza',
+  });
+});
+
 app.listen(port, () => {
   return console.log(`Express is listening at ${port}`);
 });
